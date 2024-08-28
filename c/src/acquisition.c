@@ -281,7 +281,7 @@ katherine_acquisition_fini(katherine_acquisition_t *acq)
         acq->pixel_buffer_valid = 0;\
         acq->pixel_buffer_max_valid = acq->pixel_buffer_size / PIXEL_SIZE;\
         \
-        while (acq->state == ACQUISITION_RUNNING) {\
+        while (acq->state <= ACQUISITION_RUNNING) {\
             received = acq->md_buffer_size;\
             res = katherine_udp_recv(&acq->device->data_socket, acq->md_buffer, &received);\
             \
